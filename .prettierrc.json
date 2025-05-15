@@ -1,0 +1,19 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "semi": true,
+  "importOrder": [
+    "^react(.*)",
+    "^.+\\.s?css$",
+    "^@(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^[.]",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
