@@ -15,5 +15,7 @@
     "^[./]"
   ],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+  "importOrderMergeDuplicateImports": true,
+  "plugins": ["prettier-plugin-organize-imports"]
 }
