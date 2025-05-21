@@ -1,11 +1,11 @@
 import { Box, Flex, Grid, GridItem, Show } from '@chakra-ui/react';
-import { useState } from 'react';
 import GameGrid from './components/GameGrid';
 import GameHeading from './components/GameHeading';
 import GenreList from './components/GenreList';
 import NavBar from './components/NavBar';
 import PlatformSelector from './components/PlatformSelector';
 import SortSelector from './components/SortSelector';
+import useGameQueryStore from './store';
 
 export interface GameQuery {
   genreId?: number;
@@ -15,7 +15,10 @@ export interface GameQuery {
 }
 
 function App() {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const { gameQuery, setGameQuery } = useGameQueryStore((state) => ({
+    gameQuery: state.gameQuery,
+    setGameQuery: state.setGameQuery,
+  }));
 
   return (
     <Grid
