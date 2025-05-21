@@ -1,19 +1,20 @@
 import { Heading } from '@chakra-ui/react';
-import { GameQuery } from '../App';
-import useGenres from '../hooks/useGenres';
-import usePlatform from '../hooks/usePlatform';
 import useGenre from '../hooks/useGenre';
+// import useGenres from '../hooks/useGenres';
+import usePlatform from '../hooks/usePlatform';
 
 interface Props {
-  gameQuery: GameQuery;
+  // gameQuery: GameQuery;
+  platformId?: number;
+  genreId?: number;
 }
 
-const GameHeading = ({ gameQuery }: Props) => {
-  const { data: genres } = useGenres();
+const GameHeading = ({ platformId, genreId }: Props) => {
+  // const { data: genres } = useGenres();
 
-  const platform = usePlatform(gameQuery.platformId);
+  const platform = usePlatform(platformId);
 
-  const genre = useGenre(gameQuery.genreId);
+  const genre = useGenre(genreId);
 
   // TODO - come back and make these functions one generic function
   // const genre = genres?.results.find((g) => g.id === gameQuery.genreId);

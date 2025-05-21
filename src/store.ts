@@ -4,27 +4,34 @@ import { create } from 'zustand';
 interface GameQuery {
   genreId?: number;
   platformId?: number;
-  sortOrder: string;
-  searchText: string;
+  sortOrder?: string;
+  searchText?: string;
 }
 
-interface GameQueryStoreProps {
+interface GameQueryStore {
   gameQuery: GameQuery;
-  setGameQuery: (gameQuery: GameQuery) => void;
+  setSearchText: (searchText: string) => void;
+  setGenreId: (genreId: number) => void;
+  setPlatformId: (platformId: number) => void;
+  setSortOrder: (sortOrder: string) => void;
 }
 
-const useGameQueryStore = create<GameQueryStoreProps>((set) => ({
-  gameQuery: {
-    genreId: undefined,
-    platformId: undefined,
-    sortOrder: '',
-    searchText: '',
-  },
-  setGameQuery(gameQuery) {
-    set(() => ({
-      gameQuery: { ...gameQuery },
-    }));
-  },
+const useGameQueryStore = create<GameQueryStore>((set) => ({
+  gameQuery: {},
+  setSearchText: (searchText) =>
+    set((store) => ({ gameQuery: { ...store.gameQuery, searchText } })),
+  setGenreId: (genreId: number) =>
+    set((store) => ({
+      gameQuery: { ...store.gameQuery, genreId },
+    })),
+  setPlatformId: (platformId: number) =>
+    set((store) => ({
+      gameQuery: { ...store.gameQuery, platformId },
+    })),
+  setSortOrder: (sortOrder: string) =>
+    set((store) => ({
+      gameQuery: { ...store.gameQuery, sortOrder },
+    })),
 }));
 
 if (process.env.NODE_ENV === 'development') {
