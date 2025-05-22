@@ -1,13 +1,13 @@
 import { Card, CardBody, Heading, HStack, Image } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
-import { Game } from '../hooks/useGames';
+import { Games } from '../hooks/useGames';
 import getCroppedImageUrl from '../services/image-url';
 import CriticScore from './CriticScore';
 import Emoji from './Emoji';
 import PlatformIconList from './PlatformIconList';
 
 interface Props {
-  game: Game;
+  game: Games;
 }
 
 const GameCard = ({ game }: Props) => {
