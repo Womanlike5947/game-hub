@@ -4,21 +4,24 @@ import APIClient, { FetchResponse } from '../services/api-client';
 import useGameQueryStore from '../store';
 import { Platform } from './usePlatforms';
 
-export interface Games {
+export interface Game {
   id: number;
+  slug: string;
   name: string;
+  description_raw: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  rating: number;
   rating_top: number;
 }
 
-const apiClient = new APIClient<Games>('/games');
+const apiClient = new APIClient<Game>('/games');
 
 const useGames = () => {
   const gameQuery = useGameQueryStore((s) => s.gameQuery);
 
-  return useInfiniteQuery<FetchResponse<Games>, Error>({
+  return useInfiniteQuery<FetchResponse<Game>, Error>({
     // Any changed to the gameQuery will make the API refetch
     queryKey: ['games', gameQuery],
     queryFn: ({ pageParam = 1 }) =>
