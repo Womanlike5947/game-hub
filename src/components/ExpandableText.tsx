@@ -8,8 +8,6 @@ interface ExpandableTextProps {
 const ExpandableText = ({ children }: ExpandableTextProps) => {
   const [expanded, setExpanded] = useState(false);
 
-  console.log('expanded? ', expanded);
-
   const characterLimit = 300;
 
   if (!children) return null;
