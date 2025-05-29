@@ -11,6 +11,7 @@ interface Props {
 }
 
 const GameCard = ({ game }: Props) => {
+  console.log('gamecard id:', game.id);
   return (
     <Card>
       <Image src={getCroppedImageUrl(game.background_image)} />

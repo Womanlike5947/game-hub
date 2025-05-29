@@ -2,6 +2,7 @@ import { Box, Heading, Spinner } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import ExpandableText from '../components/ExpandableText';
 import GameAttributes from '../components/GameAttributes';
+import GameTrailer from '../components/GameTrailer';
 import useGame from '../hooks/useGame';
 
 const GameDetailPage = () => {
@@ -12,10 +13,9 @@ const GameDetailPage = () => {
 
   if (error || !game) throw error;
 
-  console.log(game.parent_platforms);
-
   return (
     <Box padding={5}>
+      <GameTrailer gameId={game.id} />
       <Heading>{game.name}</Heading>
       <ExpandableText>{game.description_raw}</ExpandableText>
       <GameAttributes
