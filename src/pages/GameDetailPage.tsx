@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import ExpandableText from '../components/ExpandableText';
 import GameAttributes from '../components/GameAttributes';
 import GameTrailer from '../components/GameTrailer';
+import Screenshots from '../components/Screenshots';
 import useGame from '../hooks/useGame';
 
 const GameDetailPage = () => {
@@ -24,6 +25,7 @@ const GameDetailPage = () => {
         genres={game.genres}
         publishers={game.publishers}
       />
+      <Screenshots gameId={game.id} />
     </Box>
   );
 };
