@@ -1,7 +1,7 @@
 import { SimpleGrid, Text } from '@chakra-ui/react';
-import { Genre } from '../entities/Genre';
-import { Platform } from '../entities/Platform';
-import { Publisher } from '../entities/Publishers';
+import Genre from '../entities/Genre';
+import Platform from '../entities/Platform';
+import Publisher from '../entities/Publishers';
 import CriticScore from './CriticScore';
 import DefinitionItem from './DefinitionItem';
 
